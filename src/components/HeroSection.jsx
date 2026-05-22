@@ -8,7 +8,7 @@ const HeroSection = () => {
       <div className="container hero-content">
         <h1 className="heading-display">감각을 구조로<br/>우연을 의도로</h1>
         <p className="text-lead hero-lead">
-          Senses into structure, chance into intention
+          Senses into structure, <span className="mobile-block">chance into intention</span>
         </p>
         <div className="hero-actions">
           <a href="#work" className="btn btn-primary">View Reel</a>

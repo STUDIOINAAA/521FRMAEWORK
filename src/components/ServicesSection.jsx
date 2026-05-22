@@ -5,7 +5,7 @@ const ServicesSection = () => {
   return (
     <section id="services" className="services section-padding">
       <div className="container">
-        <h2 className="heading-section">Our Expertise</h2>
+        <h2 className="heading-section">Full Stack Production</h2>
         <div className="services-grid">
           <div className="service-card">
             <h3>프리 프로덕션 (Pre-Production)</h3>

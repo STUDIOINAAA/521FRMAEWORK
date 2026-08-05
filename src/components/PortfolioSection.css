@@ -42,10 +42,13 @@
 
 .portfolio-item {
   position: relative;
+  display: block;
   border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 16/9;
   cursor: pointer;
+  text-decoration: none;
+  color: inherit;
 }
 
 .portfolio-img {

@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import './PortfolioSection.css';
 
 const projects = [
-  { id: 1, title: 'Midnight City', category: 'Entertainment', img: 'https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=1925&auto=format&fit=crop' },
-  { id: 2, title: 'Echoes', category: 'Entertainment', img: 'https://images.unsplash.com/photo-1540656093259-0f4f9f4c3af4?q=80&w=2070&auto=format&fit=crop' },
-  { id: 3, title: 'Neon Pulse', category: 'Campaigns', img: 'https://images.unsplash.com/photo-1594908900066-3f47337549d8?q=80&w=2070&auto=format&fit=crop' },
-  { id: 4, title: 'Wild Hearts', category: 'Brand Film', img: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=1964&auto=format&fit=crop' },
+  { id: 1, title: 'FC Online Documentary - Road to FC PRO EP02', category: 'Entertainment', videoId: 'ISha1MuD8iQ' },
+  { id: 2, title: 'FC Online Documentary - Road to FC PRO EP01', category: 'Entertainment', videoId: '9-71G6mjIfM' },
+  { id: 3, title: '김성령배우 써마지 메이킹필름', category: 'Brand Film', videoId: 'Wb3_XvBxweA' },
+  { id: 4, title: '2026 BYD 워터밤서울 스케치', category: 'Brand Film', videoId: 'VLA5dd7hHnE' },
+  { id: 5, title: '뉴트리원 X 이병헌 메이킹 필름', category: 'Brand Film', videoId: 'T6PVm7Uh1lE' },
+  { id: 6, title: '인천국제공항 25주년', category: 'Campaigns', videoId: 'bKGUM-XkaNQ' },
+  { id: 7, title: 'LH 복합문화공간 - 계양 스케치', category: 'Campaigns', videoId: 'pM0_9XD1dPY' },
+  { id: 8, title: 'LH 낙동아트센터 개관 홍보영상', category: 'Campaigns', videoId: 'PXCOl-03Ut4' },
 ];
 
 const filters = ['All', 'Brand Film', 'Entertainment', 'Campaigns'];
@@ -34,20 +38,29 @@ const PortfolioSection = () => {
         </div>
         <div className="portfolio-grid">
           {filteredProjects.map(project => (
-            <div key={project.id} className="portfolio-item">
-              <div className="portfolio-img" style={{ backgroundImage: `url(${project.img})` }}></div>
+            <a
+              key={project.id}
+              className="portfolio-item"
+              href={`https://www.youtube.com/watch?v=${project.videoId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div
+                className="portfolio-img"
+                style={{ backgroundImage: `url(https://img.youtube.com/vi/${project.videoId}/hqdefault.jpg)` }}
+              ></div>
               <div className="portfolio-overlay">
                 <div className="portfolio-info">
                   <span>{project.category}</span>
                   <h3>{project.title}</h3>
                 </div>
-                <button className="play-btn">
+                <span className="play-btn">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="5 3 19 12 5 21 5 3"></polygon>
                   </svg>
-                </button>
+                </span>
               </div>
-            </div>
+            </a>
           ))}
         </div>
         <div className="portfolio-action">

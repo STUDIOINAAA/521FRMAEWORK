@@ -12,7 +12,7 @@ const PortfolioSection = () => {
   return (
     <section id="work" className="portfolio section-padding">
       <div className="container">
-        <h2 className="heading-section">Selected Works</h2>
+        <h2 className="heading-section">Reel</h2>
         <div className="portfolio-grid">
           {projects.map(project => (
             <div key={project.id} className="portfolio-item">

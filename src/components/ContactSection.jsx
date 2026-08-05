@@ -1,30 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactSection.css';
 
-const CONTACT_EMAIL = '521framework@gmail.com';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xyeggqev';
 
 const ContactSection = () => {
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-    const company = form.company.value;
-    const name = form.name.value;
-    const position = form.position.value;
-    const email = form.email.value;
-    const phone = form.phone.value;
-    const project = form.project.value;
+    setStatus('submitting');
 
-    const subject = `[문의] ${company} - ${project}`;
-    const body = [
-      `고객사명: ${company}`,
-      `담당자: ${name}`,
-      `직책: ${position}`,
-      `이메일: ${email}`,
-      `연락처: ${phone}`,
-      `프로젝트 이름: ${project}`,
-    ].join('\n');
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
   return (
@@ -33,6 +35,7 @@ const ContactSection = () => {
         <h2 className="heading-section">프로젝트 의뢰</h2>
         <div className="contact-wrapper">
           <form className="contact-form" onSubmit={handleSubmit}>
+            <input type="hidden" name="_subject" value="새 프로젝트 문의가 도착했습니다" />
             <div className="form-group-row">
               <div className="form-group">
                 <label htmlFor="company">고객사명</label>
@@ -66,7 +69,16 @@ const ContactSection = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary submit-btn">문의 접수하기</button>
+            <button type="submit" className="btn btn-primary submit-btn" disabled={status === 'submitting'}>
+              {status === 'submitting' ? '전송 중...' : '문의 접수하기'}
+            </button>
+
+            {status === 'success' && (
+              <p className="form-status form-status-success">문의가 정상적으로 접수되었습니다. 빠르게 연락드리겠습니다.</p>
+            )}
+            {status === 'error' && (
+              <p className="form-status form-status-error">전송에 실패했습니다. 잠시 후 다시 시도해주세요.</p>
+            )}
           </form>
         </div>
       </div>

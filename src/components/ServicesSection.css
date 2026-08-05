@@ -58,3 +58,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .service-card {
+    text-align: center;
+  }
+
+  .service-card h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .service-card:hover h3::after {
+    width: 60px;
+    transform: translateX(-50%);
+  }
+}

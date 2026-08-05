@@ -196,6 +196,12 @@
 }
 
 @media (max-width: 768px) {
+  .portfolio-filters {
+    justify-content: center;
+  }
+  .portfolio-filters .filter-btn:first-child {
+    width: 100%;
+  }
   .portfolio-info span {
     font-size: 0.7rem;
     letter-spacing: 1px;

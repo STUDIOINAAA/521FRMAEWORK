@@ -199,8 +199,9 @@
   .portfolio-filters {
     justify-content: center;
   }
-  .portfolio-filters .filter-btn:first-child {
-    width: 100%;
+  .portfolio-filters .filter-btn:not(:first-child) {
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
   }
   .portfolio-info span {
     font-size: 0.7rem;

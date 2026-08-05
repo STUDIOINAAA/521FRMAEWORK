@@ -62,6 +62,12 @@
 @media (max-width: 768px) {
   .service-card {
     text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 0.85rem;
+    white-space: nowrap;
   }
 
   .service-card h3::after {

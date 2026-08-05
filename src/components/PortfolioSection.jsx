@@ -37,13 +37,23 @@ const projects = [
 ];
 
 const filters = ['All', 'Brand Film', 'Entertainment', 'Campaigns', 'AI Video'];
+const PAGE_SIZE = 6;
 
 const PortfolioSection = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredProjects = activeFilter === 'All'
     ? projects
     : projects.filter(project => project.category === activeFilter);
+
+  const totalPages = Math.max(1, Math.ceil(filteredProjects.length / PAGE_SIZE));
+  const pagedProjects = filteredProjects.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+
+  const handleFilterClick = (filter) => {
+    setActiveFilter(filter);
+    setCurrentPage(1);
+  };
 
   return (
     <section id="work" className="portfolio section-padding">
@@ -54,14 +64,14 @@ const PortfolioSection = () => {
             <button
               key={filter}
               className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
-              onClick={() => setActiveFilter(filter)}
+              onClick={() => handleFilterClick(filter)}
             >
               {filter}
             </button>
           ))}
         </div>
         <div className="portfolio-grid">
-          {filteredProjects.map(project => (
+          {pagedProjects.map(project => (
             <a
               key={project.id}
               className="portfolio-item"
@@ -87,9 +97,35 @@ const PortfolioSection = () => {
             </a>
           ))}
         </div>
-        <div className="portfolio-action">
-          <a href="#" className="btn btn-outline">View All Projects</a>
-        </div>
+        {totalPages > 1 && (
+          <div className="portfolio-pagination">
+            <button
+              className="page-btn"
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              aria-label="Previous page"
+            >
+              &lt;
+            </button>
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+              <button
+                key={page}
+                className={`page-btn ${currentPage === page ? 'active' : ''}`}
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </button>
+            ))}
+            <button
+              className="page-btn"
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              aria-label="Next page"
+            >
+              &gt;
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

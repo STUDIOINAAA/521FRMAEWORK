@@ -13,7 +13,7 @@ const ServicesSection = () => {
           </div>
           <div className="service-card">
             <h3>프로덕션 (Production)</h3>
-            <p>풍부한 경험을 갖춘 전문 제작팀이 최고급 시네마틱 장비(RED, Arri 등)를 활용하여 압도적인 영상미와 섬세한 오디오를 포착합니다.</p>
+            <p>풍부한 경험을 갖춘 전문 제작팀이 최고급 시네마틱 장비를 활용하여 압도적인 영상미와 섬세한 오디오를 포착합니다.</p>
           </div>
           <div className="service-card">
             <h3>포스트 프로덕션 (Post-Production)</h3>

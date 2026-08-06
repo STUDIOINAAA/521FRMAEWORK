@@ -44,3 +44,9 @@
   color: var(--color-text-secondary);
   font-size: 0.85rem;
 }
+
+.footer-rep {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  opacity: 0.6;
+}

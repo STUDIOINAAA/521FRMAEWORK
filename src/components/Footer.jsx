@@ -20,6 +20,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <p>&copy; {new Date().getFullYear()} 521 FRAMEWORK. All rights reserved.</p>
+          <p className="footer-rep">대표자 박상화</p>
         </div>
       </div>
     </footer>

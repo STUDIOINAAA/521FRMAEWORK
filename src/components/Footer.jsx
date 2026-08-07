@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="container footer-content">
         <div className="footer-info">
           <h2 className="logo">521 <span>FRAMEWORK</span></h2>
-          <p>Seoul, Korea<br/>521framework@gmail.com<br/>+82 (2) 123-4567</p>
+          <p>Seoul, Korea<br/>521framework@gmail.com<br/>010-2315-1635</p>
         </div>
         <div className="footer-links">
           <h3>Follow Us</h3>

@@ -68,9 +68,15 @@ const projects = [
   { id: 64, title: '[돈 때문에 하는 거라서] EP.05', category: 'Entertainment', videoId: 'vB6Os9hHtIA' },
   { id: 65, title: '[돈 때문에 하는 거라서] EP.06', category: 'Entertainment', videoId: 'LyyNtWM-ObE' },
   { id: 66, title: '[돈 때문에 하는 거라서] EP.07 최종화', category: 'Entertainment', videoId: '_bVTdTmuo-M' },
+  { id: 67, title: 'K-Magic Academy | Official Teaser (ai film)', category: 'Personal Work', videoId: 'w97Hweor3b0' },
+  { id: 68, title: "Global Stays | 여행·숙박 예약 플랫폼 AI Promo", category: 'Personal Work', videoId: 'RyNjU0fwJoA' },
+  { id: 69, title: "월드컵 AI Short Film Inspired by Hyundai '르르르'", category: 'Personal Work', videoId: 'ooiDyxk9-3E' },
+  { id: 70, title: "뚜벅이 탈출! AI Short Film Inspired by Hyundai '르르르'", category: 'Personal Work', videoId: 'ei4be9T9CMQ' },
+  { id: 71, title: 'UNIQLO HEATTECH｜AI Film', category: 'Personal Work', videoId: 'XCACs8VsjFg' },
+  { id: 72, title: 'Gwangjang Market: Monster Attack Shorts', category: 'Personal Work', videoId: 'ULW5d2dnrbY' },
 ];
 
-const filters = ['All', 'Brand Film', 'Entertainment', 'Campaigns', 'AI Video'];
+const filters = ['All', 'Brand Film', 'Entertainment', 'Campaigns', 'Personal Work'];
 const PAGE_SIZE = 6;
 
 const PortfolioSection = () => {
